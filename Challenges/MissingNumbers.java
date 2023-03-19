@@ -2,18 +2,17 @@ import java.util.*;
 
 public class MissingNumbers {
     public static void main(String[] args) {
-        int [] arr = new int[]{1,2,3,5,6,8};
-        HashSet<Integer> hp = new HashSet<>();
-        HashSet<Integer> hp1 = new HashSet<>();
-        for(int i =0;i<arr.length;i++){
-            hp.add(arr[i]);
+        int arr[] = {1,2,4,5};
+        System.out.println(MissingNumber(arr));
+    }
+    static int MissingNumber(int arr[])
+    {
+        int n=arr.length;
+        int total = 1;
+        for (int i = 2; i <= (n + 1); i++) {
+            total += i;
+            total -= arr[i - 2];
         }
-        for(int i =1;i<arr.length+1;i++)
-        {
-            if(!hp.contains(i)){
-                System.out.println(i);
-            }
-        }
-        // System.out.println(hp1);
+        return total;
     }
 }
